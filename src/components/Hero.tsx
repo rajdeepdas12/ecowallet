@@ -9,7 +9,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-hero opacity-90 z-10" />
@@ -54,9 +54,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Banking That Makes
-          <br />
-          Every Dollar Count
+          Banking That Makes Every Action Count
         </motion.h1>
 
         <motion.p
@@ -65,7 +63,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          EcoWallet brings sustainability, transparency, and smarter digital finance together
+          EcoWallet turns uploads into tradable carbon credit tokens — bridging sustainability and innovation
         </motion.p>
 
         <motion.div
