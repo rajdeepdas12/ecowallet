@@ -94,13 +94,14 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
           />
 
           {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-md"
-          >
-            <div className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border p-8 shadow-2xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="w-full max-w-md"
+            >
+              <div className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border p-8 shadow-2xl">
               {/* Close button */}
               <button
                 onClick={onClose}
@@ -170,8 +171,9 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
                   </TabsContent>
                 </Tabs>
               </div>
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>
