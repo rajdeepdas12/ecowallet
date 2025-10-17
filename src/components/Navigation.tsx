@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -7,7 +8,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, LogOut, LayoutDashboard } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface NavigationProps {
   onLoginClick: (type: "public" | "ngo" | "company") => void;
@@ -15,6 +17,8 @@ interface NavigationProps {
 
 export const Navigation = ({ onLoginClick }: NavigationProps) => {
   const [scrolled, setScrolled] = useState(false);
+  const { user, logout, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,36 +70,68 @@ export const Navigation = ({ onLoginClick }: NavigationProps) => {
             </button>
           ))}
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                className="bg-gradient-warm text-foreground font-semibold border-0"
-              >
-                Login <ChevronDown className="ml-2 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-card/95 backdrop-blur-xl border-border">
-              <DropdownMenuItem
-                onClick={() => onLoginClick("public")}
-                className="cursor-pointer hover:bg-primary/20"
-              >
-                Public Login
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => onLoginClick("ngo")}
-                className="cursor-pointer hover:bg-primary/20"
-              >
-                NGO Login
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => onLoginClick("company")}
-                className="cursor-pointer hover:bg-primary/20"
-              >
-                Company Login
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {isAuthenticated ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="bg-gradient-warm text-foreground font-semibold border-0"
+                >
+                  {user?.name} <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-card/95 backdrop-blur-xl border-border">
+                <DropdownMenuItem
+                  onClick={() => navigate("/dashboard")}
+                  className="cursor-pointer hover:bg-primary/20"
+                >
+                  <LayoutDashboard className="mr-2 h-4 w-4" />
+                  Dashboard
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => {
+                    logout();
+                    navigate("/");
+                  }}
+                  className="cursor-pointer hover:bg-primary/20"
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="bg-gradient-warm text-foreground font-semibold border-0"
+                >
+                  Login <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-card/95 backdrop-blur-xl border-border">
+                <DropdownMenuItem
+                  onClick={() => onLoginClick("public")}
+                  className="cursor-pointer hover:bg-primary/20"
+                >
+                  Public Login
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => onLoginClick("ngo")}
+                  className="cursor-pointer hover:bg-primary/20"
+                >
+                  NGO Login
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => onLoginClick("company")}
+                  className="cursor-pointer hover:bg-primary/20"
+                >
+                  Company Login
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
 
         {/* Mobile menu button */}

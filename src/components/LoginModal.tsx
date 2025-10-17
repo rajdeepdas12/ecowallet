@@ -5,6 +5,9 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { X, Leaf, Building2, Users } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -14,8 +17,26 @@ interface LoginModalProps {
 
 export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModalProps) => {
   const [activeTab, setActiveTab] = useState(initialTab);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const LoginForm = ({ type }: { type: string }) => (
+  const handleLogin = (type: "public" | "ngo" | "company") => {
+    if (!email || !password) {
+      toast.error("Please enter email and password");
+      return;
+    }
+
+    login(email, password, type);
+    toast.success(`Welcome to EcoWallet! Logging in as ${type}...`);
+    onClose();
+    setTimeout(() => {
+      navigate("/dashboard");
+    }, 500);
+  };
+
+  const LoginForm = ({ type }: { type: "public" | "ngo" | "company" }) => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -29,6 +50,9 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
           type="email"
           placeholder="your@email.com"
           className="bg-background/50"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleLogin(type)}
         />
       </div>
       <div className="space-y-2">
@@ -38,9 +62,15 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
           type="password"
           placeholder="••••••••"
           className="bg-background/50"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleLogin(type)}
         />
       </div>
-      <Button className="w-full bg-gradient-warm text-foreground font-semibold">
+      <Button 
+        className="w-full bg-gradient-warm text-foreground font-semibold"
+        onClick={() => handleLogin(type)}
+      >
         Sign In
       </Button>
       <p className="text-sm text-muted-foreground text-center">
