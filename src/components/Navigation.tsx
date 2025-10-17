@@ -37,6 +37,7 @@ export const Navigation = ({ onLoginClick }: NavigationProps) => {
     { label: "About", id: "about" },
     { label: "Dashboard", id: "dashboard" },
     { label: "Upload", id: "upload" },
+    { label: "Photos", id: "photos" },
     { label: "Impact", id: "impact" },
   ];
 

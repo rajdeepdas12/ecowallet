@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 
 export const Hero = () => {
@@ -46,13 +46,25 @@ export const Hero = () => {
         ))}
       </div>
 
+      {/* Welcome Animation */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, type: "spring" }}
+        className="absolute top-24 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-primary/10 backdrop-blur-xl border border-primary/30 rounded-full px-6 py-3"
+      >
+        <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+        <span className="text-sm font-semibold text-primary">Welcome to EcoWallet</span>
+        <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+      </motion.div>
+
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-secondary"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           Banking That Makes Every Action Count
         </motion.h1>
@@ -61,7 +73,7 @@ export const Hero = () => {
           className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
         >
           EcoWallet turns uploads into tradable carbon credit tokens — bridging sustainability and innovation
         </motion.p>
@@ -69,7 +81,7 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
         >
           <Button
             size="lg"
