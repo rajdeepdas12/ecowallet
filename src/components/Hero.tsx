@@ -11,7 +11,7 @@ export const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-hero opacity-90 z-10" />
+        <div className="absolute inset-0 bg-gradient-hero opacity-90 z-10 mx-0 my-0" />
         <motion.img src={heroImage} alt="EcoWallet Hero" className="w-full h-full object-cover" initial={{
         scale: 1.1
       }} animate={{
@@ -47,7 +47,7 @@ export const Hero = () => {
     }} transition={{
       duration: 0.8,
       type: "spring"
-    }} className="absolute top-24 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-primary/10 backdrop-blur-xl border border-primary/30 rounded-full py-3 px-[13px]">
+    }} className="absolute top-24 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-primary/10 backdrop-blur-xl border border-primary/30 rounded-full px-[13px] my-[7px] py-[14px]">
         <Sparkles className="w-5 h-5 text-primary animate-pulse" />
         <span className="text-sm font-semibold text-primary">Welcome to EcoWallet</span>
         <Sparkles className="w-5 h-5 text-primary animate-pulse" />
