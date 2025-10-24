@@ -21,6 +21,7 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const handleLogin = (type: "public" | "ngo" | "company") => {
     if (!email || !password) {
@@ -28,9 +29,20 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
       return;
     }
 
-    login(email, password, type);
-    toast.success(`Welcome to EcoWallet! Logging in as ${type}...`);
+    if (isSignUp) {
+      // Sign up - create new account
+      login(email, password, type);
+      toast.success(`Account created! Welcome to EcoWallet as ${type}!`);
+    } else {
+      // Login - authenticate existing user
+      login(email, password, type);
+      toast.success(`Welcome back to EcoWallet!`);
+    }
+    
     onClose();
+    setEmail("");
+    setPassword("");
+    setIsSignUp(false);
     setTimeout(() => {
       navigate("/dashboard");
     }, 500);
@@ -71,11 +83,16 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
         className="w-full bg-gradient-warm text-foreground font-semibold"
         onClick={() => handleLogin(type)}
       >
-        Sign In
+        {isSignUp ? "Create Account" : "Sign In"}
       </Button>
       <p className="text-sm text-muted-foreground text-center">
-        Don't have an account?{" "}
-        <button className="text-primary hover:underline">Sign up</button>
+        {isSignUp ? "Already have an account? " : "Don't have an account? "}
+        <button 
+          className="text-primary hover:underline"
+          onClick={() => setIsSignUp(!isSignUp)}
+        >
+          {isSignUp ? "Sign in" : "Sign up"}
+        </button>
       </p>
     </motion.div>
   );
@@ -139,7 +156,7 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
                   animate={{ opacity: 1, y: 0 }}
                   className="text-2xl font-bold mb-6 text-center"
                 >
-                  Welcome to EcoWallet
+                  {isSignUp ? "Create Account" : "Welcome Back"}
                 </motion.h2>
 
                 <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)}>
