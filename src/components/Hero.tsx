@@ -8,6 +8,11 @@ interface HeroProps {
 }
 
 export const Hero = ({ onGetStartedClick }: HeroProps) => {
+  const handleGetStarted = () => {
+    console.log("Get Started button clicked!");
+    onGetStartedClick();
+  };
+  
   const scrollToNext = () => {
     document.getElementById("login")?.scrollIntoView({
       behavior: "smooth"
@@ -96,7 +101,7 @@ export const Hero = ({ onGetStartedClick }: HeroProps) => {
         duration: 0.8,
         delay: 0.9
       }}>
-          <Button size="lg" onClick={onGetStartedClick} className="bg-gradient-warm text-foreground font-semibold px-8 py-6 text-lg hover:shadow-[var(--glow-amber)] transition-shadow duration-300">
+          <Button size="lg" onClick={handleGetStarted} className="relative z-50 bg-gradient-warm text-foreground font-semibold px-8 py-6 text-lg hover:shadow-[var(--glow-amber)] transition-shadow duration-300">
             Get Started
           </Button>
         </motion.div>
