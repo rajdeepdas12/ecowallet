@@ -9,7 +9,7 @@ interface HeroProps {
 
 export const Hero = ({ onGetStartedClick }: HeroProps) => {
   const scrollToNext = () => {
-    document.getElementById("about")?.scrollIntoView({
+    document.getElementById("login")?.scrollIntoView({
       behavior: "smooth"
     });
   };
