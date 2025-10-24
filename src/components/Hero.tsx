@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-export const Hero = () => {
+
+interface HeroProps {
+  onGetStartedClick: () => void;
+}
+
+export const Hero = ({ onGetStartedClick }: HeroProps) => {
   const scrollToNext = () => {
     document.getElementById("about")?.scrollIntoView({
       behavior: "smooth"
@@ -91,7 +96,7 @@ export const Hero = () => {
         duration: 0.8,
         delay: 0.9
       }}>
-          <Button size="lg" onClick={scrollToNext} className="bg-gradient-warm text-foreground font-semibold px-8 py-6 text-lg hover:shadow-[var(--glow-amber)] transition-shadow duration-300">
+          <Button size="lg" onClick={onGetStartedClick} className="bg-gradient-warm text-foreground font-semibold px-8 py-6 text-lg hover:shadow-[var(--glow-amber)] transition-shadow duration-300">
             Get Started
           </Button>
         </motion.div>

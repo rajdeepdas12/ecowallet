@@ -24,7 +24,7 @@ const Index = () => {
       <FallingLeaves />
       <Navigation onLoginClick={handleLoginClick} />
       <div id="hero">
-        <Hero />
+        <Hero onGetStartedClick={() => setIsLoginOpen(true)} />
       </div>
       <div id="about">
         <About />
