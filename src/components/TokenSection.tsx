@@ -1,14 +1,37 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Upload, Leaf, Coins } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { toast } from "sonner";
 
 export const TokenSection = () => {
   const [uploaded, setUploaded] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleUpload = () => {
-    setUploaded(true);
-    setTimeout(() => setUploaded(false), 3000);
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      
+      // Check if it's an image
+      if (!file.type.startsWith('image/')) {
+        toast.error("Please upload an image file");
+        return;
+      }
+      
+      toast.success(`Uploaded ${file.name}`);
+      setUploaded(true);
+      setTimeout(() => setUploaded(false), 3000);
+      
+      // Reset input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
   };
 
   return (
@@ -68,9 +91,17 @@ export const TokenSection = () => {
               <Upload className="w-12 h-12 text-foreground" />
             </div>
             
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="hidden"
+            />
+            
             <Button
               size="lg"
-              onClick={handleUpload}
+              onClick={handleUploadClick}
               className="bg-gradient-warm text-foreground font-semibold px-12 py-6 text-lg hover:shadow-[var(--glow-amber)] transition-shadow duration-300"
             >
               Upload & Earn Tokens
