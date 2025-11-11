@@ -9,12 +9,11 @@ interface HeroProps {
 
 export const Hero = ({ onGetStartedClick }: HeroProps) => {
   const handleGetStarted = () => {
-    console.log("Get Started button clicked!");
     onGetStartedClick();
   };
   
   const scrollToNext = () => {
-    document.getElementById("login")?.scrollIntoView({
+    document.getElementById("about")?.scrollIntoView({
       behavior: "smooth"
     });
   };
@@ -112,7 +111,7 @@ export const Hero = ({ onGetStartedClick }: HeroProps) => {
         duration: 2,
         repeat: Infinity
       }}>
-          
+          <ArrowDown className="w-8 h-8 text-primary" />
         </motion.div>
       </div>
     </section>;
