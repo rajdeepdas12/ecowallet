@@ -1,17 +1,16 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-
 interface HeroProps {
   onGetStartedClick: () => void;
 }
-
-export const Hero = ({ onGetStartedClick }: HeroProps) => {
+export const Hero = ({
+  onGetStartedClick
+}: HeroProps) => {
   const handleGetStarted = () => {
     onGetStartedClick();
   };
-  
   const scrollToNext = () => {
     document.getElementById("about")?.scrollIntoView({
       behavior: "smooth"
@@ -111,7 +110,7 @@ export const Hero = ({ onGetStartedClick }: HeroProps) => {
         duration: 2,
         repeat: Infinity
       }}>
-          <ArrowDown className="w-8 h-8 text-primary" />
+          
         </motion.div>
       </div>
     </section>;
