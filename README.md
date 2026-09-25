@@ -1,73 +1,148 @@
-# Welcome to your Lovable project
+# ecowallet-momentum
 
-## Project info
+Goal:
+Create a single-page animated website inspired by the uploaded wallet dashboard UI.
+The website should have smooth scrolling transitions, 3D-like parallax animations, and an eco-modern aesthetic.
+It’s for a project called EcoWallet — a platform that turns user uploads into carbon credit tokens (for sustainability tracking).
+The website must be frontend-only, deployable on Vercel, and built using Next.js + Tailwind + Framer Motion.
 
-**URL**: https://lovable.dev/projects/f9b3ae55-341b-4f3c-8e52-37e7e20c64e9
+⚙️ Tech Stack
 
-## How can I edit this code?
+Next.js (App Router) — for a fast, production-ready frontend.
 
-There are several ways of editing your application.
+Tailwind CSS — for responsive, modern styling.
 
-**Use Lovable**
+Framer Motion — for animations and scroll-based effects.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f9b3ae55-341b-4f3c-8e52-37e7e20c64e9) and start prompting.
+GSAP (optional) — for parallax scrolling and timeline animations.
 
-Changes made via Lovable will be committed automatically to this repo.
+Lottie Animations — for eco visuals like floating leaves or glowing globe.
 
-**Use your preferred IDE**
+🌍 Website Structure (Single Scrolling Page)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Each section should appear with smooth scroll-triggered animations, blending visually into the next — like Apple or Tesla landing pages.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Hero Section
 
-Follow these steps:
+Fullscreen animated hero with gradient overlay inspired by uploaded image #1.
+
+Headline: “Banking That Makes Every Dollar Count.”
+
+Subtext: “EcoWallet brings sustainability, transparency, and smarter digital finance.”
+
+CTA button: “Get Started” → scrolls smoothly to next section.
+
+Background: soft parallax movement + glowing sun animation.
+
+2. About Section
+
+Text fade-in + horizontal scroll animation.
+
+Headline: “Turning Everyday Banking into Effortless Momentum.”
+
+3 cards (like in uploaded image #3):
+
+Partnership Over Projects
+
+Data-Driven Decisions
+
+Instant Transfers
+
+Hover animations for cards (lift + shadow glow).
+
+3. Dashboard Preview Section
+
+Scroll into an animated “mock dashboard” (from uploaded image #2).
+
+Animated statistics counters (Total Balance, Spending, Savings Goal).
+
+Cards slide in from left/right with smooth easing.
+
+Hover effect shows tooltips like “Bank-grade Security”.
+
+4. Upload / Token Section
+
+Upload button appears with smooth upward animation.
+
+When clicked → plays “token creation” animation (using Lottie).
+
+Show example: “Your Upload Earned 5 Carbon Tokens!”
+
+Floating eco icons (leaves, coins, tokens) around button.
+
+5. Impact Section
+
+Counter animation: “12M+ Transfers Processed Monthly”, “98% Satisfaction Rate”.
+
+Parallax forest/earth background that subtly moves while scrolling.
+
+Text fades up dynamically.
+
+6. Footer
+
+Gradient-glass footer with rounded corners.
+
+Minimal text: “© 2025 EcoWallet | Built for Sustainability.”
+
+“Made in Lovable” badge animation on hover.
+
+🎨 Design Language
+
+Dark modern UI (like your uploaded screenshots).
+
+Gradient mix of amber-orange + forest-green + deep black.
+
+Glassmorphism effects on cards.
+
+Smooth scroll snapping for every section.
+
+Subtle particle effects for atmosphere.
+
+✨ Animation Style
+
+Scroll-triggered fade-ins and zoom-outs.
+
+Parallax effect on images and text.
+
+Hover motion on buttons and cards.
+
+Counter & timeline animations for dashboard stats.
+
+Framer Motion variants for reusable animations.
+
+🚀 Output Requirements
+
+Frontend-only, deployable on Vercel.
+
+No backend or data logic.
+
+Use mock JSON data for dashboard numbers.
+
+Must include responsive layout for mobile/tablet.
+
+One long, scrollable page (no page routing).
+
+✅ Expected Output
+
+A single-scroll animated website with the storytelling feel of the uploaded designs — elegant, cinematic, and eco-themed — ready to deploy instantly to Vercel.
+
+This project was built with [Lovable](https://lovable.dev).
+
+## Build with Lovable
+
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/f9b3ae55-341b-4f3c-8e52-37e7e20c64e9).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+git clone <this-repository-url>
+cd <repository-name>
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f9b3ae55-341b-4f3c-8e52-37e7e20c64e9) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
