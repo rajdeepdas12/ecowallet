@@ -1,4 +1,5 @@
-# ecowallet-momentum
+# ecowallet
+
 
 Goal:
 Create a single-page animated website inspired by the uploaded wallet dashboard UI.
