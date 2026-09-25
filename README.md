@@ -126,15 +126,7 @@ One long, scrollable page (no page routing).
 
 A single-scroll animated website with the storytelling feel of the uploaded designs — elegant, cinematic, and eco-themed — ready to deploy instantly to Vercel.
 
-This project was built with [Lovable](https://lovable.dev).
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/f9b3ae55-341b-4f3c-8e52-37e7e20c64e9).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
