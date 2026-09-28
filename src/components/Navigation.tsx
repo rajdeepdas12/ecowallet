@@ -53,10 +53,18 @@ export const Navigation = ({ onLoginClick }: NavigationProps) => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <motion.div
-          className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-eco"
+          className="flex items-center gap-2.5 cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           whileHover={{ scale: 1.05 }}
         >
-          EcoWallet
+          <img
+            src="/logo-icon.png"
+            alt="EcoWallet Logo"
+            className="w-9 h-9 object-contain drop-shadow-[0_2px_10px_rgba(34,197,94,0.3)]"
+          />
+          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-eco">
+            EcoWallet
+          </span>
         </motion.div>
 
         <div className="hidden md:flex items-center gap-8">

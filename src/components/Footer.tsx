@@ -21,13 +21,14 @@ export const Footer = () => {
           </div>
           
           <motion.div
-            className="flex items-center gap-2 text-xs text-muted-foreground group cursor-pointer"
+            className="flex items-center gap-3"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-destructive group-hover:animate-pulse" />
-            <span>in Lovable</span>
+            <img src="/logo-icon.png" alt="EcoWallet" className="w-7 h-7 object-contain" />
+            <span className="font-bold text-base bg-clip-text text-transparent bg-gradient-eco">
+              EcoWallet
+            </span>
           </motion.div>
 
           <div className="flex gap-8 text-sm">

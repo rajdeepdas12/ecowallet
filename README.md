@@ -85,7 +85,7 @@ Gradient-glass footer with rounded corners.
 
 Minimal text: “© 2025 EcoWallet | Built for Sustainability.”
 
-“Made in Lovable” badge animation on hover.
+EcoWallet branding with modern glassmorphism.
 
 🎨 Design Language
 

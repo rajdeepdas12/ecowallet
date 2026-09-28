@@ -151,6 +151,9 @@ export const LoginModal = ({ isOpen, onClose, initialTab = "public" }: LoginModa
               </div>
 
               <div className="relative z-10">
+                <div className="flex justify-center mb-3">
+                  <img src="/logo-icon.png" alt="EcoWallet" className="w-12 h-12 object-contain drop-shadow-[0_4px_12px_rgba(34,197,94,0.3)]" />
+                </div>
                 <motion.h2
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
